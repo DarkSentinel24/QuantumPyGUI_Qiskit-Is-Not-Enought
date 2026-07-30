@@ -5,6 +5,20 @@
   font-style: normal;
 }
 
+.electrolize-regular {
+  font-family: "Electrolize", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.quicksand-mainimportedgooglefont {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+
 body {
     margin: 2.5px;
     padding: 0px;
@@ -20,4 +34,22 @@ header {
     padding-left: 15px;
     border-radius: 5px;
     border: 5px, solid, rgb(222, 222, 222);
+}
+
+.main {
+    margin: 2.5px;
+    margin-top: 10px;
+    padding-top: 0px;
+    border-radius: 5px;
+    border: 5px, solid, rgb(222, 222, 222);
+}
+
+.abt {
+    font-size: 24px;
+    padding-left: 15px;
+    font-family: electrolize;
+}
+
+p {
+    font-family: quicksand;
 }
