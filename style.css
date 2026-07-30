@@ -1,0 +1,23 @@
+.space-grotesk-importedgooglefont {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+body {
+    margin: 2.5px;
+    padding: 0px;
+    border-width: 0px;
+    background-color: rgb(124, 156, 245);
+}
+
+header {
+    font-family: Space Grotesk;
+    background-color: darkcyan;
+    color: rgb(222, 222, 222);
+    padding: 5px;
+    padding-left: 15px;
+    border-radius: 5px;
+    border: 5px, solid, rgb(222, 222, 222);
+}
