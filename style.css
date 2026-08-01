@@ -1,3 +1,9 @@
+
+
+* {
+  box-sizing: border-box; /* Includes padding and borders within widths */
+}
+
 .space-grotesk-importedgooglefont {
   font-family: "Space Grotesk", sans-serif;
   font-optical-sizing: auto;
@@ -18,7 +24,6 @@
   font-style: normal;
 }
 
-
 body {
     margin: 2.5px;
     padding: 0px;
@@ -27,29 +32,65 @@ body {
 }
 
 header {
-    font-family: Space Grotesk;
+    font-family: 'Space Grotesk', sans-serif;
     background-color: darkcyan;
     color: rgb(222, 222, 222);
     padding: 5px;
     padding-left: 15px;
     border-radius: 5px;
-    border: 5px, solid, rgb(222, 222, 222);
+    border: 5px solid rgb(222, 222, 222); /* Fixed syntax: removed commas */
 }
 
 .main {
+    display: flex;
+    flex-wrap: wrap; /*.*/
     margin: 2.5px;
     margin-top: 10px;
-    padding-top: 0px;
+    padding: 5px; 
     border-radius: 5px;
-    border: 5px, solid, rgb(222, 222, 222);
+    border: 5px solid rgb(222, 222, 222); /*.*/
+    height: 44vh;
+}
+
+.abt_main {
+    font-size: 24px;
+    padding-left: 15px;
+    font-family: 'Electrolize', sans-serif;
+    width: 100%; /*.*/
 }
 
 .abt {
-    font-size: 24px;
-    padding-left: 15px;
-    font-family: electrolize;
+     padding-left: 10px;
 }
 
 p {
-    font-family: quicksand;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#circuitmaker {
+     margin: 2.5px;
+     border: 5px solid rgb(222, 222, 222);
+     width: calc(68% - 5px);
+     height: calc(68% - 5px);
+}
+
+#blochsphere {
+     margin: 2.5px;
+     border: 5px solid rgb(222, 222, 222);
+     width: calc(32% - 5px);
+     height: calc(68% - 5px);
+}
+
+#mainprobabilities {
+     margin: 2.5px;
+     border: 5px solid rgb(222, 222, 222);
+     width: calc(58% - 5px);
+     height: calc(32% - 5px);
+}
+
+#statevector {
+     margin: 2.5px;
+     border: 5px solid rgb(222, 222, 222);
+     width: calc(42% - 5px);
+     height: calc(32% - 5px);
 }
