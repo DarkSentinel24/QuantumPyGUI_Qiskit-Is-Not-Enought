@@ -8,19 +8,9 @@ ket_1 = np.array([[0], [1]]);
 bra_0 = ket_0.conj().T;
 bra_1 = ket_1.conj().T;
 
-ket_00 = np.kron(ket_0, ket_0);
-ket_01 = np.kron(ket_0, ket_1);
-ket_10 = np.kron(ket_1, ket_0);
-ket_11 = np.kron(ket_1, ket_1);
-
-bra_00 = ket_00.conj().T;
-bra_01 = ket_01.conj().T;
-bra_10 = ket_10.conj().T;
-bra_11 = ket_11.conj().T;
-
 #====== Compuertas Unitarias
 
-Id2= np.array([[1, 0], [0, 1]]); 
+Id1 = np.array([[1, 0], [0, 1]]); 
 
 Pauli_X= np.array([[0, 1], [1, 0]]);
 Pauli_Y= np.array([[0, -i], [i, 0]]);
@@ -31,20 +21,29 @@ Ph_T = np.array([[1, 0], [0, np.exp(i*np.pi/4)]])
 
 def PhaseR_X(angX):
     theta=angX;
-    R_Xp = np.array([[np.cos(theta/2), -i*np.sin(theta/2)], [-i*np.sin(theta/2), np.cos(theta/2)]]);
+    R_Xp = np.array([[np.cos(theta/2), -i*np.sin(theta/2)],
+                     [-i*np.sin(theta/2), np.cos(theta/2)]]);
     return R_Xp
 def PhaseR_Y(angY):
     betta=angY;
-    R_Yp = np.array([[np.cos(betta/2), -1*np.sin(betta/2)], [np.sin(betta/2), np.cos(betta/2)]]);
+    R_Yp = np.array([[np.cos(betta/2), -1*np.sin(betta/2)],
+                     [np.sin(betta/2), np.cos(betta/2)]]);
     return R_Yp
 def PhaseR_Z(angZ):
     gamma=angZ;
-    R_Zp = np.array([[np.exp(-i*gamma/2), 0], [0, np.exp(i*gamma/2)]])
+    R_Zp = np.array([[np.exp(-i*gamma/2), 0],
+                     [0, np.exp(i*gamma/2)]])
     return R_Zp
 
-Hadamard= 1/np.sqrt(2)*(np.array([[1, 1], [1, -1]]));
+Hadamard = 1/np.sqrt(2)*(np.array([[1, 1], 
+                                   [1, -1]]));
 
 #========== Compuertas de sistemas Bipartitos
+
+Id2 = np.array([[1, 0, 0, 0],
+                [0, 1, 0, 0],
+                [0, 0, 1, 0],
+                [0, 0, 0, 1]])
 
 cx = np.array([[1, 0, 0, 0], 
                [0, 1, 0, 0],
@@ -96,15 +95,15 @@ def NewCircuit(noq, iqest, nocb):
         q = [ket_0.copy() for _ in range(noq)]
     if (iqest == 1):
         q = [ket_1.copy() for _ in range(noq)]
-    q[0] = Id2 @ q[0]
+    q[0] = Id1 @ q[0]
     return q
 
 #=================== Test Area
 
 print("Script succesfully started")
-noq = int(input("Number of qubits of your circuit: "))
-iqest = int(input("Initial qubits state (0 or 1): "))
-nocb = int(input("Number of classical bits of your circuit: "))
-nc=NewCircuit(noq, iqest, nocb)
-#res = Hadamard@nc[2]
-statevector(nc[1])
+nc=NewCircuit(2, 0, 3)
+phi=Hadamard@nc[0]
+phi1=(np.kron(phi, nc[1]))
+print(phi1)
+phi2=cx@phi1
+statevector(phi2)
