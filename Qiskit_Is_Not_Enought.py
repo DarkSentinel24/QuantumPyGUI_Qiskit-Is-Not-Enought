@@ -95,15 +95,13 @@ def NewCircuit(noq, iqest, nocb):
         q = [ket_0.copy() for _ in range(noq)]
     if (iqest == 1):
         q = [ket_1.copy() for _ in range(noq)]
-    q[0] = Id1 @ q[0]
     return q
 
 #=================== Test Area
 
 print("Script succesfully started")
 nc=NewCircuit(2, 0, 3)
-phi=Hadamard@nc[0]
-phi1=(np.kron(phi, nc[1]))
-print(phi1)
-phi2=cx@phi1
-statevector(phi2)
+nc[0]= Hadamard@nc[0]
+entangled= np.kron(nc[0], nc[1])
+entangled= cx@entangled
+statevector(entangled)
