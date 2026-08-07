@@ -1,4 +1,8 @@
-
+:root {
+    --hr: 70%;
+    --wur: 70%;
+    --wlr: 60%;
+}
 
 * {
   box-sizing: border-box; /* Includes padding and borders within widths */
@@ -71,27 +75,27 @@ p {
 #circuitmaker {
      margin: 2.5px;
      border: 5px solid rgb(222, 222, 222);
-     width: calc(68% - 5px);
+     width: calc(var(--wur) - 5px);
      height: calc(68% - 5px);
 }
 
 #blochsphere {
      margin: 2.5px;
      border: 5px solid rgb(222, 222, 222);
-     width: calc(32% - 5px);
+     width: calc((100% - var(--wur)) - 5px);
      height: calc(68% - 5px);
 }
 
 #mainprobabilities {
      margin: 2.5px;
      border: 5px solid rgb(222, 222, 222);
-     width: calc(58% - 5px);
+     width: calc(var(--wlr) - 5px);
      height: calc(32% - 5px);
 }
 
 #statevector {
      margin: 2.5px;
      border: 5px solid rgb(222, 222, 222);
-     width: calc(42% - 5px);
+     width: calc((100% - var(--wlr)) - 5px);
      height: calc(32% - 5px);
 }
